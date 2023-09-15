@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #000;
+    box-sizing: border-box;
+}
+
+.clock {
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1rem #555;
+}
+
+label {
+    position: absolute;
+    text-align: center;
+    inset: 0px;
+    transform: rotate(calc(var(--i) * (360deg / 4)));
+}
+
+span {
+    display: inline-block;
+    font-size: 6.4rem;
+    font-weight: 900;
+    transform: rotate(calc(var(--i) * (-360deg / 4)));
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    font-style: italic;
+}
+
+.center {
+    position: absolute;
+}
+
+.hand {
+    height: 160px;
+    width: 5px;
+    background: #ED0000;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    transform-origin: bottom;
+}
+
+.hand::after {
+    height: 35px;
+    content: '';
+    background: #ED0000;
+    width: 100%;
+    position: absolute;
+    bottom: -30px;
+    border-radius: 6px;
+    z-index: 100;
+}
+
+.sec::before {
+    height: 20px;
+    width: 20px;
+    background: #111;
+    content: '';
+    position: absolute;
+    border-radius: 100px;
+    bottom: -8px;
+    left: -7px;
+    z-index: 1000;
+}
+
+.mint {
+    background: #999;
+    width: 11px;
+    height: 155px;
+}
+
+
+.mint::after {
+    background: #999;
+}
+
+.hr {
+    background: #ED0000;
+    height: 110px;
+    width: 13px;
+}
+
+.hr::after {
+    background: #ED0000;
+}
+
+@media screen and (max-width:420px) {
+    body{
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    .clock{
+        height: 250px;
+        width: 250px;
+    }
+    label{
+        inset: -10px;
+    }
+    span {
+        font-size: 5rem;
+    }
+    .hand{
+        height: 90px;
+        width: 3px;
+    }
+    .mint{
+        height: 80px;
+        width: 8px;
+    }
+    .hr{
+        height: 65px;
+        width: 10px;
+    }
+    .sec::before{
+        height: 15px;
+        width: 15px;
+        left: -5.3px;
+        bottom: -6.7px;
+        box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.562);
+    }
+}
